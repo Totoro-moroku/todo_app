@@ -1,6 +1,6 @@
 import { User } from '@supabase/supabase-js'
 import { atom, useRecoilState, useResetRecoilState } from 'recoil'
-import { AuthAtom, CurrentUserIDAtom, UserAtom } from '../state/user'
+import { AuthAtom, CurrentUserIDAtom, UserAtom } from '../recoil/user'
 import { supabase } from '../utils/supabase'
 
 const LoddingAtom = atom({ key: 'loading', default: false })

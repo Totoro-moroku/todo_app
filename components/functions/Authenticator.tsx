@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import { FC, ReactNode, useEffect } from 'react'
 import { useRecoilState } from 'recoil'
 import { useAuth } from '../../hooks/useAuth'
-import { LoadingAtom } from '../../state/other'
+import { LoadingAtom } from '../../recoil/other'
 import { Spinner } from './Spinner'
 
 type AuthenticatorProps = {

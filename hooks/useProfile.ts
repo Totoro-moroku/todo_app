@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
-import { CurrentProfileAtom, ProfileAtom } from '../state/profile'
-import { UserAtom } from '../state/user'
+import { CurrentProfileAtom, ProfileAtom } from '../recoil/profile'
+import { UserAtom } from '../recoil/user'
 import { supabase } from '../utils/supabase'
 
 const database = { from: 'profiles' }

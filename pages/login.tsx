@@ -6,7 +6,6 @@ import { IconBox } from '../components/ui/atoms/IconBox'
 import LoginForm from '../components/ui/parts/LoginForm'
 import SignUpForm from '../components/ui/parts/SignUpForm'
 import { useAuth } from '../hooks/useAuth'
-import { supabase } from '../utils/supabase'
 
 export const Login: NextPage = ({}) => {
   const [isLoginPage, setIsLoginPaeg] = useState(true)
@@ -48,18 +47,6 @@ export const Login: NextPage = ({}) => {
       </>
     </Layout>
   )
-}
-
-Login.getInitialProps = async ({ res, req }) => {
-  console.log(res)
-  console.log(req)
-
-  const { data, error } = await supabase.auth.onAuthStateChange
-
-  console.log(data)
-  console.log(error)
-
-  return {}
 }
 
 export default Login

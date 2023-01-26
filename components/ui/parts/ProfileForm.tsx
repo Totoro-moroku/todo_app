@@ -3,7 +3,6 @@ import { FC } from 'react'
 import { useRecoilState } from 'recoil'
 import { useProfile } from '../../../hooks/useProfile'
 import { LineLoadingAtom } from '../../../recoil/other'
-import { CurrentProfileAtom } from '../../../recoil/profile'
 import { FormButton } from '../atoms/FormButton'
 import { FormInput } from '../atoms/FormInput'
 import { FormLabel } from '../atoms/FormLabel'
@@ -12,9 +11,8 @@ import { IconBox } from '../atoms/IconBox'
 import Form from '../elements/Form'
 
 const ProfileForm: FC = () => {
-  const [currentProfile, setCurrentProfile] = useRecoilState(CurrentProfileAtom)
-
-  const { updateProfile } = useProfile()
+  const { updateProfile, currentProfile, setCurrentProfile, resetProfile } =
+    useProfile()
   const [isLoding, setIsLineLoading] = useRecoilState(LineLoadingAtom)
 
   return (
@@ -108,7 +106,14 @@ const ProfileForm: FC = () => {
             <div className="flex justify-end space-x-1 text-white">
               <FormButton type="submit">更新</FormButton>
               <div>
-                <FormButton type="button" className="px-1.5">
+                <FormButton
+                  type="button"
+                  className="px-1.5"
+                  onClick={(e: any) => {
+                    e.preventDefault()
+                    resetProfile()
+                  }}
+                >
                   <ArrowPathIcon className="w-6" />
                 </FormButton>
               </div>

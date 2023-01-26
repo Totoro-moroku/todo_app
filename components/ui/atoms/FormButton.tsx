@@ -5,6 +5,7 @@ type FormButtonProps = {
   id?: string
   className?: string | undefined
   children: ReactNode
+  onClick?: any | undefined
 }
 
 export const FormButton: FC<FormButtonProps> = ({
@@ -12,6 +13,7 @@ export const FormButton: FC<FormButtonProps> = ({
   className,
   id,
   children,
+  onClick,
 }) => {
   return (
     <>
@@ -19,6 +21,7 @@ export const FormButton: FC<FormButtonProps> = ({
         className={`${className} rounded-md bg-slate-400 px-6 py-2`}
         type={type}
         id={id}
+        onClick={onClick}
       >
         {children}
       </button>

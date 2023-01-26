@@ -1,11 +1,7 @@
-import { GetStaticProps, NextPage } from 'next'
+import { NextPage } from 'next'
 import Header from '../../components/layouts/Header'
 import { Layout } from '../../components/layouts/Layout'
 import ProfileForm from '../../components/ui/parts/ProfileForm'
-
-export const getStaticProps: GetStaticProps = async () => {
-  return { props: {} }
-}
 
 const Profile: NextPage = () => {
   return (

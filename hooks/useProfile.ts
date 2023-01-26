@@ -15,6 +15,11 @@ export const useProfile = () => {
     getProfile()
   }, [])
 
+  useEffect(() => {
+    if (!profile) return
+    setCurrentProfile({ ...profile })
+  }, [profile, setCurrentProfile])
+
   const getProfile = async () => {
     const { data, error, status } = await supabase
       .from(database.from)
@@ -28,16 +33,16 @@ export const useProfile = () => {
 
     if (data) {
       setProfile(data)
-      setCurrentProfile(data)
     }
   }
 
   const updateProfile = async () => {
     if (!currentProfile) return
 
+    console.log(currentProfile)
     setCurrentProfile({ ...currentProfile, updated_at: new Date() })
 
-    const { data, error, status } = await supabase
+    const { data, error, status, statusText } = await supabase
       .from(database.from)
       .update(currentProfile)
       .eq('id', currentProfile?.id)
@@ -47,9 +52,8 @@ export const useProfile = () => {
       throw new Error(error.message)
     }
 
-    //@ts-ignore
+    // @ts-ignore
     setProfile({ ...data[0] })
-    resetProfile()
   }
 
   const resetProfile = () => {

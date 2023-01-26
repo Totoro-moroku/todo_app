@@ -11,8 +11,13 @@ import { IconBox } from '../atoms/IconBox'
 import Form from '../elements/Form'
 
 const ProfileForm: FC = () => {
-  const { updateProfile, currentProfile, setCurrentProfile, resetProfile } =
-    useProfile()
+  const {
+    updateProfile,
+    currentProfile,
+    setCurrentProfile,
+    resetProfile,
+    setProfile,
+  } = useProfile()
   const [isLoding, setIsLineLoading] = useRecoilState(LineLoadingAtom)
 
   return (

@@ -1,8 +1,9 @@
-import { UserIcon } from '@heroicons/react/24/outline'
+import { ArrowPathIcon, UserIcon } from '@heroicons/react/24/outline'
 import { FC } from 'react'
 import { useRecoilState } from 'recoil'
 import { useProfile } from '../../../hooks/useProfile'
 import { LineLoadingAtom } from '../../../recoil/other'
+import { CurrentProfileAtom } from '../../../recoil/profile'
 import { FormButton } from '../atoms/FormButton'
 import { FormInput } from '../atoms/FormInput'
 import { FormLabel } from '../atoms/FormLabel'
@@ -11,21 +12,10 @@ import { IconBox } from '../atoms/IconBox'
 import Form from '../elements/Form'
 
 const ProfileForm: FC = () => {
-  const { currentProfile, setCurrentProfile, updateProfile } = useProfile()
-  const [isLoding, setIsLoading] = useRecoilState(LineLoadingAtom)
+  const [currentProfile, setCurrentProfile] = useRecoilState(CurrentProfileAtom)
 
-  const handleFormSubmit = async (e: any) => {
-    try {
-      e.preventDefault()
-      setIsLoading(true)
-      await updateProfile()
-    } catch (error) {
-      alert(error)
-    } finally {
-      setIsLoading(false)
-      console.log('完了')
-    }
-  }
+  const { updateProfile } = useProfile()
+  const [isLoding, setIsLineLoading] = useRecoilState(LineLoadingAtom)
 
   return (
     <>
@@ -34,7 +24,17 @@ const ProfileForm: FC = () => {
       </div>
       <Form
         className={'flex flex-col-reverse lg:flex-row'}
-        onSubmit={handleFormSubmit}
+        onSubmit={async (e: any) => {
+          try {
+            e.preventDefault()
+            setIsLineLoading(true)
+            await updateProfile()
+          } catch (error) {
+            alert(error)
+          } finally {
+            setIsLineLoading(false)
+          }
+        }}
       >
         <div className="flex-auto">
           <div className="my-4 space-y-7 sm:mx-10">
@@ -42,12 +42,12 @@ const ProfileForm: FC = () => {
               <FormLabel>ユーザー名</FormLabel>
               <FormInput
                 type="text"
+                id="username"
                 placeholder="ユーザー名"
                 required
                 autoComplete="username"
-                value={currentProfile?.username}
+                value={currentProfile.username}
                 setValue={(e: any) => {
-                  if (!currentProfile) return
                   setCurrentProfile({
                     ...currentProfile,
                     username: e.target.value,
@@ -60,15 +60,14 @@ const ProfileForm: FC = () => {
                 <FormLabel>姓</FormLabel>
                 <FormInput
                   type="text"
-                  id="email"
+                  id="first_name"
                   placeholder="姓"
-                  autoComplete="email"
-                  value={currentProfile?.first_name}
+                  autoComplete=""
+                  value={currentProfile.first_name}
                   setValue={(e: any) => {
-                    if (!currentProfile) return
                     setCurrentProfile({
                       ...currentProfile,
-                      first_name: e.target.value,
+                      first_name: e.target?.value,
                     })
                   }}
                 />
@@ -77,12 +76,11 @@ const ProfileForm: FC = () => {
                 <FormLabel>名</FormLabel>
                 <FormInput
                   type="text"
-                  id="email"
+                  id="last_name"
                   placeholder="名"
-                  autoComplete="email"
-                  value={currentProfile?.last_name}
+                  autoComplete=""
+                  value={currentProfile.last_name}
                   setValue={(e: any) => {
-                    if (!currentProfile) return
                     setCurrentProfile({
                       ...currentProfile,
                       last_name: e.target.value,
@@ -98,9 +96,8 @@ const ProfileForm: FC = () => {
                 placeholder="コメント"
                 rows={4}
                 autoComplete="current-password"
-                value={currentProfile?.self_introduction}
+                value={currentProfile.self_introduction}
                 setValue={(e: any) => {
-                  if (!currentProfile) return
                   setCurrentProfile({
                     ...currentProfile,
                     self_introduction: e.target.value,
@@ -108,8 +105,13 @@ const ProfileForm: FC = () => {
                 }}
               />
             </div>
-            <div className="flex justify-end text-white">
+            <div className="flex justify-end space-x-1 text-white">
               <FormButton type="submit">更新</FormButton>
+              <div>
+                <FormButton type="button" className="px-1.5">
+                  <ArrowPathIcon className="w-6" />
+                </FormButton>
+              </div>
             </div>
           </div>
         </div>

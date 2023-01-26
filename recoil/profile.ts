@@ -6,7 +6,15 @@ export const ProfileAtom = atom<Profile | null>({
   default: null,
 })
 
-export const CurrentProfileAtom = atom<Profile | null>({
-  key: 'currentProfile',
-  default: null,
+export const CurrentProfileAtom = atom<Profile>({
+  key: 'current.profile',
+  default: {
+    id: '',
+    updated_at: '',
+    username: '',
+    avatar_url: '',
+    first_name: '',
+    last_name: '',
+    self_introduction: '',
+  },
 })

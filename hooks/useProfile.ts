@@ -41,12 +41,22 @@ export const useProfile = () => {
       .from(database.from)
       .update(currentProfile)
       .eq('id', currentProfile?.id)
-
-    console.log(data)
-    console.log(status)
+      .select()
 
     if (error && status === 406) {
       throw new Error(error.message)
+    }
+
+    //@ts-ignore
+    setProfile({ ...data[0] })
+    resetProfile()
+  }
+
+  const resetProfile = () => {
+    if (profile) {
+      setCurrentProfile({ ...profile })
+    } else {
+      throw new Error('do not have profile')
     }
   }
 
@@ -55,6 +65,7 @@ export const useProfile = () => {
     setProfile,
     currentProfile,
     setCurrentProfile,
+    resetProfile,
     getProfile,
     updateProfile,
   }

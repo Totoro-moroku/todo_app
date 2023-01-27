@@ -2,8 +2,9 @@ import { BellIcon, UserIcon } from '@heroicons/react/24/outline'
 import { FC } from 'react'
 import { useSetRecoilState } from 'recoil'
 import { useAuth } from '../../hooks/useAuth'
+import { OpenLogoutAtom } from '../../recoil/other'
 import { IconButtonMenu } from '../ui/elements/IconMenu'
-import { isOpenLogoutModalAtom, LogoutModal } from '../ui/parts/LogoutModal'
+import { LogoutModal } from '../ui/parts/LogoutModal'
 import { NoticeItem, NoticeTitle } from '../ui/parts/NoticeIconMenu'
 import {
   AccountChangeItem,
@@ -21,7 +22,7 @@ type HeaderProps = {
 
 const Header: FC<HeaderProps> = ({ className }) => {
   const { user } = useAuth()
-  const setOpen = useSetRecoilState(isOpenLogoutModalAtom)
+  const setOpen = useSetRecoilState(OpenLogoutAtom)
 
   return (
     <nav className={`${className} z-50 bg-slate-400`}>
@@ -47,7 +48,11 @@ const Header: FC<HeaderProps> = ({ className }) => {
               items={[
                 AccountChangeItem(),
                 SettingItem(),
-                LogoutItem({ setOpen: () => setOpen(true) }),
+                LogoutItem({
+                  setOpen: () => {
+                    setOpen(true)
+                  },
+                }),
                 EndItem(),
               ]}
               className="w-80 md:w-96"

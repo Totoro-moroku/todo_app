@@ -1,4 +1,5 @@
 import { atom } from 'recoil'
+import { AlertType } from '../types'
 
 export const LoadingAtom = atom<boolean>({
   key: 'loading',
@@ -6,6 +7,21 @@ export const LoadingAtom = atom<boolean>({
 })
 
 export const LineLoadingAtom = atom<boolean>({
-  key: 'line.loding',
+  key: 'loding.line',
   default: false,
+})
+
+export const OpenLogoutAtom = atom<boolean>({
+  key: 'open.logout',
+  default: false,
+})
+
+export const AlertAtom = atom<AlertType>({
+  key: 'alert',
+  default: {
+    open: false,
+    message: null,
+    color: null,
+    time: 0,
+  },
 })

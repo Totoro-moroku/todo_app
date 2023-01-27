@@ -1,8 +1,9 @@
 import { ArrowPathIcon, UserIcon } from '@heroicons/react/24/outline'
 import { FC } from 'react'
-import { useRecoilState } from 'recoil'
+import { useRecoilState, useRecoilValue } from 'recoil'
 import { useProfile } from '../../../hooks/useProfile'
 import { LineLoadingAtom } from '../../../recoil/other'
+import { CurrentUserIDAtom } from '../../../recoil/user'
 import { FormButton } from '../atoms/FormButton'
 import { FormInput } from '../atoms/FormInput'
 import { FormLabel } from '../atoms/FormLabel'
@@ -11,13 +12,9 @@ import { IconBox } from '../atoms/IconBox'
 import Form from '../elements/Form'
 
 const ProfileForm: FC = () => {
-  const {
-    updateProfile,
-    currentProfile,
-    setCurrentProfile,
-    resetProfile,
-    setProfile,
-  } = useProfile()
+  const userId = useRecoilValue(CurrentUserIDAtom)
+  const { updateProfile, currentProfile, setCurrentProfile, resetProfile } =
+    useProfile(userId)
   const [isLoding, setIsLineLoading] = useRecoilState(LineLoadingAtom)
 
   return (

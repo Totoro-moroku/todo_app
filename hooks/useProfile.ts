@@ -1,30 +1,28 @@
 import { useEffect } from 'react'
-import { useRecoilState, useRecoilValue } from 'recoil'
+import { useRecoilState } from 'recoil'
 import { CurrentProfileAtom, ProfileAtom } from '../recoil/profile'
-import { UserAtom } from '../recoil/user'
 import { supabase } from '../utils/supabase'
 
 const database = { from: 'profiles' }
 
-export const useProfile = () => {
+export const useProfile = (userId: string | undefined) => {
   const [profile, setProfile] = useRecoilState(ProfileAtom)
   const [currentProfile, setCurrentProfile] = useRecoilState(CurrentProfileAtom)
-  const user = useRecoilValue(UserAtom)
 
   useEffect(() => {
-    getProfile()
-  }, [])
+    if (!profile) {
+      getProfile()
+      return
+    }
 
-  useEffect(() => {
-    if (!profile) return
     setCurrentProfile({ ...profile })
   }, [profile, setCurrentProfile])
 
   const getProfile = async () => {
-    const { data, error, status } = await supabase
+    const { data, error, status, statusText } = await supabase
       .from(database.from)
       .select('*')
-      .eq('id', user?.id)
+      .eq('id', userId)
       .single()
 
     if (error && status === 406) {
@@ -45,7 +43,7 @@ export const useProfile = () => {
     const { data, error, status, statusText } = await supabase
       .from(database.from)
       .update(currentProfile)
-      .eq('id', currentProfile?.id)
+      .eq('id', userId)
       .select()
 
     if (error && status === 406) {

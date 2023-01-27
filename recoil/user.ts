@@ -9,9 +9,9 @@ export const UserAtom = atom<User | null>({
   effects_UNSTABLE: [persistAtom],
 })
 
-export const CurrentUserIDAtom = atom<User['id'] | null>({
+export const CurrentUserIDAtom = atom<User['id']>({
   key: 'user.id',
-  default: null,
+  default: '',
   effects_UNSTABLE: [persistAtom],
 })
 

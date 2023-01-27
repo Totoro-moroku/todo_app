@@ -18,3 +18,10 @@ export type EditProgile = Omit<
   Profile,
   'updated_at' | 'avatar_url' | 'username '
 >
+
+export type AlertType = {
+  open: boolean
+  color: string | null
+  message: string | null
+  time: number
+}

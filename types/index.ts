@@ -21,7 +21,19 @@ export type EditProgile = Omit<
 
 export type AlertType = {
   open: boolean
-  color: string | null
+  color: COLOR_TYPE | string
   message: string | null
   time: number
+}
+
+export type AlertColorType = {
+  bg: string
+  border: string
+  text: string
+  icon: string
+}
+
+export enum COLOR_TYPE {
+  GREEN,
+  RED,
 }

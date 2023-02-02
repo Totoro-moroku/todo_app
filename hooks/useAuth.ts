@@ -16,7 +16,7 @@ export const useAuth = () => {
 
   const setUserData = (data: User | null) => {
     setUser(data)
-    setUserId(data === null ? null : data.id)
+    setUserId(data !== null ? data.id : '')
   }
 
   const onSignUp = async () => {

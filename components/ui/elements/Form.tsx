@@ -1,4 +1,4 @@
-import { FC, ReactNode, FormEventHandler } from 'react'
+import { FC, FormEventHandler, ReactNode } from 'react'
 
 type FormType = {
   children: ReactNode

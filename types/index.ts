@@ -18,3 +18,22 @@ export type EditProgile = Omit<
   Profile,
   'updated_at' | 'avatar_url' | 'username '
 >
+
+export type AlertType = {
+  open: boolean
+  color: COLOR_TYPE | string
+  message: string | null
+  time: number
+}
+
+export type AlertColorType = {
+  bg: string
+  border: string
+  text: string
+  icon: string
+}
+
+export enum COLOR_TYPE {
+  GREEN,
+  RED,
+}

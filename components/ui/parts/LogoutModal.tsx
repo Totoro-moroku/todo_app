@@ -1,18 +1,14 @@
 import { ExclamationCircleIcon } from '@heroicons/react/24/outline'
-import { atom, useRecoilState } from 'recoil'
+import { useRecoilState } from 'recoil'
 import { useAuth } from '../../../hooks/useAuth'
+import { OpenLogoutAtom } from '../../../recoil/other'
 import { IconBox } from '../atoms/IconBox'
 import { Modal } from '../elements/Modal'
 
-export const isOpenLogoutModalAtom = atom({
-  key: 'logout.modal',
-  default: false,
-})
-
 export const LogoutModal = () => {
-  const [isOpen, setOpen] = useRecoilState(isOpenLogoutModalAtom)
+  const [isOpen, setIsOpen] = useRecoilState(OpenLogoutAtom)
   const onClose = () => {
-    setOpen(false)
+    setIsOpen(false)
   }
   const { onLogOut } = useAuth()
   return (

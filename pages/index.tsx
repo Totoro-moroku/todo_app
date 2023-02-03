@@ -1,13 +1,12 @@
 import { FC } from 'react'
-import Header from '../components/layouts/Header'
 import { Layout } from '../components/layouts/Layout'
 
-const Home: FC = () => {
+const Index: FC = () => {
   return (
-    <Layout title="Home">
-      <Header />
+    <Layout title="">
+      <></>
     </Layout>
   )
 }
 
-export default Home
+export default Index

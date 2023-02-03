@@ -21,7 +21,7 @@ export const Authenticator: FC<AuthenticatorProps> = ({ children }) => {
 
     if (isLogin() && router.pathname === '/login') {
       setLoading(true)
-      router.push('/')
+      router.push('/home')
     }
 
     if (loading) {

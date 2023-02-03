@@ -1,6 +1,6 @@
+import { useAlert } from '@/hooks/useAlert'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { FC, ReactNode, useEffect } from 'react'
-import { useAlert } from '../../hooks/useAlert'
 import { AlertDailog } from '../ui/elements/AlertDailog'
 
 type AlertProps = {
@@ -31,7 +31,7 @@ export const Alert: FC<AlertProps> = ({ children }) => {
         <div className="flex">
           <Icon className={`${color?.icon} w-7 flex-none`} />
           <div className={`${color?.text} grow `}>{alert.message}</div>
-          <div className="flex-none p-1 rounded-full cursor-pointer hover:opacity-50">
+          <div className="flex-none cursor-pointer rounded-full p-1 hover:opacity-50">
             <XMarkIcon
               className={`${color?.icon} w-5`}
               onClick={() => hideAlert()}

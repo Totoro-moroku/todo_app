@@ -1,9 +1,9 @@
+import { FormButton } from '@/components/ui/atoms/FormButton'
+import { FormInput } from '@/components/ui/atoms/FormInput'
+import Form from '@/components/ui/elements/Form'
+import { useAuth } from '@/hooks/useAuth'
 import Link from 'next/link'
 import { useState } from 'react'
-import { useAuth } from '../../../hooks/useAuth'
-import { FormButton } from '../atoms/FormButton'
-import { FormInput } from '../atoms/FormInput'
-import Form from '../elements/Form'
 
 function LoginForm() {
   const [isShow, setIsShow] = useState(false)
@@ -45,7 +45,7 @@ function LoginForm() {
               }}
             />
             <div className="mx-1 my-2 text-sm">
-              <label className="flex m-1 space-x-4">
+              <label className="m-1 flex space-x-4">
                 <input
                   type="checkbox"
                   className="w-4"

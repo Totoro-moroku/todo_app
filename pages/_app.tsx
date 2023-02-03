@@ -1,4 +1,4 @@
-import '../styles/globals.css'
+import '@/styles/globals.css'
 import type { AppProps, NextWebVitalsMetric } from 'next/app'
 import { RecoilRoot } from 'recoil'
 

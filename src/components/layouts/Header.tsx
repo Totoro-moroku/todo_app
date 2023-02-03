@@ -1,8 +1,8 @@
+import { useAuth } from '@/hooks/useAuth'
+import { OpenLogoutAtom } from '@/recoil/other'
 import { BellIcon, UserIcon } from '@heroicons/react/24/outline'
 import { FC } from 'react'
 import { useSetRecoilState } from 'recoil'
-import { useAuth } from '../../hooks/useAuth'
-import { OpenLogoutAtom } from '../../recoil/other'
 import { IconButtonMenu } from '../ui/elements/IconMenu'
 import { LogoutModal } from '../ui/parts/LogoutModal'
 import { NoticeItem, NoticeTitle } from '../ui/parts/NoticeIconMenu'
@@ -39,7 +39,7 @@ const Header: FC<HeaderProps> = ({ className }) => {
               items={NoticeItems}
               className="w-96"
             >
-              <BellIcon className="w-6 h-6" />
+              <BellIcon className="h-6 w-6" />
             </IconButtonMenu>
           </div>
           <div className="w-12">
@@ -57,7 +57,7 @@ const Header: FC<HeaderProps> = ({ className }) => {
               ]}
               className="w-80 md:w-96"
             >
-              <UserIcon className="w-6 h-6" />
+              <UserIcon className="h-6 w-6" />
             </IconButtonMenu>
           </div>
           <LogoutModal />

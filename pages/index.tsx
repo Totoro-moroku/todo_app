@@ -1,5 +1,5 @@
+import { Layout } from '@/components/layouts/Layout'
 import { FC } from 'react'
-import { Layout } from '../components/layouts/Layout'
 
 const Index: FC = () => {
   return (

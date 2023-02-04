@@ -2,9 +2,9 @@
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
-    './recoil/*.{ts,js}',
-    './recoil/**/*.{ts,js}',
+    './src/components/**/*.{js,ts,jsx,tsx}',
+    './src/recoil/*.{ts,js}',
+    './src/recoil/**/*.{ts,js}',
   ],
   theme: {
     extend: {

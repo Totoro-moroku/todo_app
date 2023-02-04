@@ -1,18 +1,18 @@
+import { Alert } from '@/components/functions/Alert'
+import { FormButton } from '@/components/ui/atoms/FormButton'
+import { FormInput } from '@/components/ui/atoms/FormInput'
+import { FormLabel } from '@/components/ui/atoms/FormLabel'
+import { FormTextarea } from '@/components/ui/atoms/FormTextare'
+import { IconBox } from '@/components/ui/atoms/IconBox'
+import Form from '@/components/ui/elements/Form'
+import { useAlert } from '@/hooks/useAlert'
+import { useProfile } from '@/hooks/useProfile'
+import { LineLoadingAtom } from '@/recoil/other'
+import { CurrentUserIDAtom } from '@/recoil/user'
+import { COLOR_TYPE } from '@/types'
 import { ArrowPathIcon, UserIcon } from '@heroicons/react/24/outline'
 import { FC } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
-import { useAlert } from '../../../hooks/useAlert'
-import { useProfile } from '../../../hooks/useProfile'
-import { LineLoadingAtom } from '../../../recoil/other'
-import { CurrentUserIDAtom } from '../../../recoil/user'
-import { COLOR_TYPE } from '../../../types'
-import { Alert } from '../../functions/Alert'
-import { FormButton } from '../atoms/FormButton'
-import { FormInput } from '../atoms/FormInput'
-import { FormLabel } from '../atoms/FormLabel'
-import { FormTextarea } from '../atoms/FormTextare'
-import { IconBox } from '../atoms/IconBox'
-import Form from '../elements/Form'
 
 const ProfileForm: FC = () => {
   const userId = useRecoilValue(CurrentUserIDAtom)
@@ -131,13 +131,13 @@ const ProfileForm: FC = () => {
             </div>
           </div>
           <div className="flex-none">
-            <div className="flex flex-col items-center m-4 space-y-5">
+            <div className="m-4 flex flex-col items-center space-y-5">
               <div className="z-0 h-60 w-60">
                 <div className="h-8 w-full rounded-t-lg bg-slate-600 bg-opacity-50 px-2 py-1.5 text-slate-50">
                   アカウント 画像
                 </div>
-                <IconBox className="w-full -mt-8 border-2 rounded-lg shadow-md h-60">
-                  <UserIcon className="w-24 h-24 g-local " />
+                <IconBox className="-mt-8 h-60 w-full rounded-lg border-2 shadow-md">
+                  <UserIcon className="g-local h-24 w-24 " />
                 </IconBox>
               </div>
               <div className="flex">

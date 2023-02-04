@@ -1,6 +1,6 @@
+import Header from '@/components/layouts/Header'
+import { Layout } from '@/components/layouts/Layout'
 import { FC } from 'react'
-import Header from '../components/layouts/Header'
-import { Layout } from '../components/layouts/Layout'
 
 const Home: FC = () => {
   return (

@@ -1,11 +1,11 @@
 import { CheckBadgeIcon } from '@heroicons/react/24/outline'
 import { NextPage } from 'next'
 import { useState } from 'react'
-import { Layout } from '../components/layouts/Layout'
-import { IconBox } from '../components/ui/atoms/IconBox'
-import LoginForm from '../components/ui/parts/LoginForm'
-import SignUpForm from '../components/ui/parts/SignUpForm'
-import { useAuth } from '../hooks/useAuth'
+import { Layout } from '@/components/layouts/Layout'
+import { IconBox } from '@/components/ui/atoms/IconBox'
+import LoginForm from '@/components/ui/parts/LoginForm'
+import SignUpForm from '@/components/ui/parts/SignUpForm'
+import { useAuth } from '@/hooks/useAuth'
 
 export const Login: NextPage = ({}) => {
   const [isLoginPage, setIsLoginPaeg] = useState(true)

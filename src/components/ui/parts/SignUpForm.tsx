@@ -1,8 +1,8 @@
+import { FormButton } from '@/components/ui/atoms/FormButton'
+import { FormInput } from '@/components/ui/atoms/FormInput'
+import Form from '@/components/ui/elements/Form'
+import { useAuth } from '@/hooks/useAuth'
 import { useState } from 'react'
-import { useAuth } from '../../../hooks/useAuth'
-import { FormButton } from '../atoms/FormButton'
-import { FormInput } from '../atoms/FormInput'
-import Form from '../elements/Form'
 
 function SignUpForm() {
   const [isShow, setIsShow] = useState(false)

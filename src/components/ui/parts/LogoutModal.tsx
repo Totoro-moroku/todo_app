@@ -1,9 +1,9 @@
+import { IconBox } from '@/components/ui/atoms/IconBox'
+import { Modal } from '@/components/ui/elements/Modal'
+import { useAuth } from '@/hooks/useAuth'
+import { OpenLogoutAtom } from '@/recoil/other'
 import { ExclamationCircleIcon } from '@heroicons/react/24/outline'
 import { useRecoilState } from 'recoil'
-import { useAuth } from '../../../hooks/useAuth'
-import { OpenLogoutAtom } from '../../../recoil/other'
-import { IconBox } from '../atoms/IconBox'
-import { Modal } from '../elements/Modal'
 
 export const LogoutModal = () => {
   const [isOpen, setIsOpen] = useRecoilState(OpenLogoutAtom)
@@ -13,20 +13,20 @@ export const LogoutModal = () => {
   const { onLogOut } = useAuth()
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <div className="inline-block mx-5 overflow-hidden align-middle transition-all transform my-52">
-        <main className="px-4 py-2 bg-white rounded-md shadow-xl w-80">
-          <div className="flex flex-col items-stretch w-full justify-items-center">
-            <div className="flex py-2 text-sm text-left text-gray-500">
+      <div className="mx-5 my-52 inline-block transform overflow-hidden align-middle transition-all">
+        <main className="w-80 rounded-md bg-white px-4 py-2 shadow-xl">
+          <div className="flex w-full flex-col items-stretch justify-items-center">
+            <div className="flex py-2 text-left text-sm text-gray-500">
               <div className="flex-none py-1 pr-2">
                 <IconBox>
-                  <ExclamationCircleIcon className="w-6 h-6" />
+                  <ExclamationCircleIcon className="h-6 w-6" />
                 </IconBox>
               </div>
               <div className="flex-1 py-2">ログアウトしても大丈夫ですか？</div>
             </div>
-            <div className="flex space-x-2 h-11">
+            <div className="flex h-11 space-x-2">
               <button
-                className="flex-1 py-1 rounded-md bg-slate-400 ring-slate-300 hover:bg-slate-500 hover:text-white hover:ring-1"
+                className="flex-1 rounded-md bg-slate-400 py-1 ring-slate-300 hover:bg-slate-500 hover:text-white hover:ring-1"
                 onClick={() => {
                   onClose()
                   onLogOut()
@@ -35,7 +35,7 @@ export const LogoutModal = () => {
                 はい
               </button>
               <button
-                className="flex-1 py-1 rounded-md bg-slate-400 ring-slate-300 hover:bg-slate-500 hover:text-white hover:ring-1"
+                className="flex-1 rounded-md bg-slate-400 py-1 ring-slate-300 hover:bg-slate-500 hover:text-white hover:ring-1"
                 onClick={onClose}
               >
                 いいえ

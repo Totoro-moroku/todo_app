@@ -1,6 +1,6 @@
-import '../styles/globals.css'
 import type { AppProps, NextWebVitalsMetric } from 'next/app'
 import { RecoilRoot } from 'recoil'
+import '../styles/globals.css'
 
 export function reportWebVitals(metric: NextWebVitalsMetric) {
   switch (metric.name) {

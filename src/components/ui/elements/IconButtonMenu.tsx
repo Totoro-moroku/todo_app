@@ -1,6 +1,7 @@
 import { Menu, Transition } from '@headlessui/react'
 import { FC, ReactNode } from 'react'
 import { IconBox } from '../atoms/IconBox'
+import { IconButton } from '../atoms/IconButton'
 
 type Menu = {
   children?: ReactNode
@@ -20,8 +21,8 @@ export const IconButtonMenu: FC<Menu> = ({
       {({ open, close }) => (
         <>
           <IconBox>
-            <Menu.Button className="p-2 text-white rounded-full hover:bg-slate-300 hover:text-black">
-              {children}
+            <Menu.Button>
+              <IconButton>{children}</IconButton>
             </Menu.Button>
           </IconBox>
           <Transition

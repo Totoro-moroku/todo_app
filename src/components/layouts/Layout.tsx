@@ -1,14 +1,19 @@
+import { Authenticator } from '@/components/functions/Authenticator'
+import { useSsrComplectedState } from '@/utils/presist'
 import Head from 'next/head'
-import { FC, ReactNode } from 'react'
-import { Authenticator } from '../functions/Authenticator'
+import { FC, ReactNode, useLayoutEffect } from 'react'
 
 type LayoutProps = {
-  children: ReactNode
+  children?: ReactNode
   title: string
   className?: string | undefined
 }
 
 export const Layout: FC<LayoutProps> = ({ children, title, className }) => {
+  const setSsrCompleted = useSsrComplectedState()
+
+  useLayoutEffect(setSsrCompleted, [setSsrCompleted])
+
   return (
     <>
       <Head>

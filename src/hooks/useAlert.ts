@@ -1,10 +1,10 @@
-import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil'
 import {
   AlertAtom,
   AlertColorSelector,
   AlertIconSelector,
-} from '../recoil/other'
-import { COLOR_TYPE } from '../types'
+} from '@/recoil/alert'
+import { COLOR_TYPE } from '@/types'
+import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil'
 
 export const useAlert = () => {
   const [alert, setAlert] = useRecoilState(AlertAtom)

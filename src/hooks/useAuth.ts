@@ -1,7 +1,7 @@
+import { AuthAtom, UserAtom } from '@/recoil/user'
+import { supabase } from '@/utils/supabase'
 import { User } from '@supabase/supabase-js'
 import { atom, useRecoilState, useResetRecoilState } from 'recoil'
-import { AuthAtom, CurrentUserIDAtom, UserAtom } from '../recoil/user'
-import { supabase } from '../utils/supabase'
 
 const LoddingAtom = atom({ key: 'loading', default: false })
 
@@ -9,14 +9,12 @@ export const useAuth = () => {
   const [{ username, email, password }, setAuth] = useRecoilState(AuthAtom)
   const resetAuth = useResetRecoilState(AuthAtom)
   const [user, setUser] = useRecoilState(UserAtom)
-  const [userId, setUserId] = useRecoilState(CurrentUserIDAtom)
   const [loading, setLoading] = useRecoilState(LoddingAtom)
 
   const isLogin = () => user !== null
 
   const setUserData = (data: User | null) => {
     setUser(data)
-    setUserId(data !== null ? data.id : '')
   }
 
   const onSignUp = async () => {

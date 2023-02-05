@@ -8,14 +8,14 @@ import Form from '@/components/ui/elements/Form'
 import { useAlert } from '@/hooks/useAlert'
 import { useProfile } from '@/hooks/useProfile'
 import { LineLoadingAtom } from '@/recoil/other'
-import { CurrentUserIDAtom } from '@/recoil/user'
+import { UserIdSelector } from '@/recoil/user'
 import { COLOR_TYPE } from '@/types'
 import { ArrowPathIcon, UserIcon } from '@heroicons/react/24/outline'
 import { FC } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
 
 const ProfileForm: FC = () => {
-  const userId = useRecoilValue(CurrentUserIDAtom)
+  const userId = useRecoilValue(UserIdSelector)
   const { updateProfile, currentProfile, setCurrentProfile, resetProfile } =
     useProfile(userId)
   const [isLoding, setIsLineLoading] = useRecoilState(LineLoadingAtom)

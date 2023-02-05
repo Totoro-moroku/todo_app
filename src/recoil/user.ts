@@ -1,18 +1,20 @@
+import { AuthType } from '@/types'
+import { persistAtomEffect } from '@/utils/presist'
 import { User } from '@supabase/supabase-js'
-import { atom } from 'recoil'
-import { AuthType } from '../types'
-import { persistAtom } from '../utils/presist'
+import { atom, selector } from 'recoil'
 
 export const UserAtom = atom<User | null>({
   key: 'user',
   default: null,
-  effects_UNSTABLE: [persistAtom],
+  effects_UNSTABLE: [persistAtomEffect],
 })
 
-export const CurrentUserIDAtom = atom<User['id']>({
+export const UserIdSelector = selector<User['id'] | undefined>({
   key: 'user.id',
-  default: '',
-  effects_UNSTABLE: [persistAtom],
+  get: ({ get }) => {
+    const user = get(UserAtom)
+    return user?.id
+  },
 })
 
 export const AuthAtom = atom<AuthType>({

@@ -1,4 +1,5 @@
 import { IconTextButton } from '@/components/ui/atoms/IconTextButton'
+import Tooltip from '@/components/ui/elements/Tooltip'
 import { OpenSideBar } from '@/recoil/other'
 import { POSITION_TYPE } from '@/types'
 import {
@@ -11,7 +12,6 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC, ReactNode } from 'react'
 import { useRecoilValue } from 'recoil'
-import Tooltip from '../ui/elements/Tooltip'
 
 type Navigation = {
   pageName: string

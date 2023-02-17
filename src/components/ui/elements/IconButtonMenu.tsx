@@ -36,7 +36,7 @@ export const IconButtonMenu: FC<Menu> = ({
           >
             {items && (
               <Menu.Items
-                className={`${className} absolute right-0 z-20 mt-2 mr-2 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
+                className={`absolute right-0 ${className}  mt-2 mr-2 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
               >
                 {title || <div>{title}</div>}
                 {items?.map((item, i) => (

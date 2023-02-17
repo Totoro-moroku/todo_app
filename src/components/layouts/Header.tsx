@@ -1,3 +1,4 @@
+import { IconButton } from '@/components/ui/atoms/IconButton'
 import { IconButtonMenu } from '@/components/ui/elements/IconButtonMenu'
 import { LogoutModal } from '@/components/ui/parts/LogoutModal'
 import { NoticeItem, NoticeTitle } from '@/components/ui/parts/NoticeIconMenu'
@@ -9,10 +10,15 @@ import {
   UserTitle,
 } from '@/components/ui/parts/UserIconMenu'
 import { useAuth } from '@/hooks/useAuth'
-import { OpenLogoutAtom } from '@/recoil/other'
-import { BellIcon, UserIcon } from '@heroicons/react/24/outline'
+import { OpenLogoutAtom, OpenSideBar } from '@/recoil/other'
+import {
+  Bars3Icon,
+  BellIcon,
+  ChevronDoubleRightIcon,
+  UserIcon,
+} from '@heroicons/react/24/outline'
 import { FC } from 'react'
-import { useSetRecoilState } from 'recoil'
+import { useRecoilState, useSetRecoilState } from 'recoil'
 
 const NoticeItems = [NoticeItem]
 
@@ -20,17 +26,27 @@ type HeaderProps = {
   className?: string | undefined
 }
 
-const Header: FC<HeaderProps> = ({ className }) => {
+export const Header: FC<HeaderProps> = ({ className }) => {
   const { user } = useAuth()
   const setOpen = useSetRecoilState(OpenLogoutAtom)
+  const [isOpen, setIsOpne] = useRecoilState(OpenSideBar)
 
   return (
     <nav
-      className={`${className} fixed right-0 top-0 left-0 z-10 bg-slate-400 lg:static`}
+      className={`${className} right-0 top-0 left-0 border-b-2 bg-slate-400`}
     >
-      <div className="flex h-14 px-4">
-        <div className="flex">
-          <div className="w-12"></div>
+      <div className="flex h-14 pl-2 pr-4 ">
+        <div className="w-12">
+          <IconButton className={'group'} onClick={() => setIsOpne(!isOpen)}>
+            <div className="">
+              <Bars3Icon className={`visible w-7 group-hover:hidden`} />
+              <ChevronDoubleRightIcon
+                className={`${
+                  isOpen ? 'rotate-180' : ''
+                } hidden w-7 group-hover:inline-block`}
+              />
+            </div>
+          </IconButton>
         </div>
         <div className="grow"></div>
         <div className="flex">
@@ -43,7 +59,7 @@ const Header: FC<HeaderProps> = ({ className }) => {
               <BellIcon className="w-7" />
             </IconButtonMenu>
           </div>
-          <div className="w-12">
+          <div className="w-12 ">
             <IconButtonMenu
               title={<UserTitle user={user} />}
               items={[
@@ -56,7 +72,7 @@ const Header: FC<HeaderProps> = ({ className }) => {
                 }),
                 EndItem(),
               ]}
-              className="w-80 md:w-96"
+              className="absolute z-50 w-80 md:w-96"
             >
               <UserIcon className="w-7" />
             </IconButtonMenu>
@@ -67,5 +83,3 @@ const Header: FC<HeaderProps> = ({ className }) => {
     </nav>
   )
 }
-
-export default Header

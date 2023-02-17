@@ -1,12 +1,12 @@
 import { AuthType } from '@/types'
-import { persistAtomEffect } from '@/utils/presist'
+import { persistAtom } from '@/utils/presist'
 import { User } from '@supabase/supabase-js'
 import { atom, selector } from 'recoil'
 
 export const UserAtom = atom<User | null>({
   key: 'user',
   default: null,
-  effects_UNSTABLE: [persistAtomEffect],
+  effects_UNSTABLE: [persistAtom],
 })
 
 export const UserIdSelector = selector<User['id'] | undefined>({

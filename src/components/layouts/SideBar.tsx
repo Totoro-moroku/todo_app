@@ -1,18 +1,17 @@
-import { IconButton } from '@/components/ui/atoms/IconButton'
 import { IconTextButton } from '@/components/ui/atoms/IconTextButton'
 import { OpenSideBar } from '@/recoil/other'
+import { POSITION_TYPE } from '@/types'
 import {
-  Bars3Icon,
   ChartBarIcon,
   CheckCircleIcon,
-  ChevronDoubleRightIcon,
   Cog8ToothIcon,
   RectangleGroupIcon,
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC, ReactNode } from 'react'
-import { useRecoilState } from 'recoil'
+import { useRecoilValue } from 'recoil'
+import Tooltip from '../ui/elements/Tooltip'
 
 type Navigation = {
   pageName: string
@@ -24,22 +23,22 @@ const sideBarNavigations: Navigation[] = [
   {
     pageName: 'ダッシュボード',
     path: '/home',
-    icon: <RectangleGroupIcon className="w-7" />,
+    icon: <RectangleGroupIcon className="w-6" />,
   },
   {
     pageName: 'タスク',
     path: '/task',
-    icon: <CheckCircleIcon className="w-7" />,
+    icon: <CheckCircleIcon className="w-6" />,
   },
   {
     pageName: 'レポート',
     path: '/report',
-    icon: <ChartBarIcon className="w-7" />,
+    icon: <ChartBarIcon className="w-6" />,
   },
   {
     pageName: '設定',
     path: '/setting',
-    icon: <Cog8ToothIcon className="w-7" />,
+    icon: <Cog8ToothIcon className="w-6" />,
   },
 ]
 
@@ -48,48 +47,47 @@ type SideBarProps = {
 }
 
 export const SideBar: FC<SideBarProps> = ({ className }) => {
-  const [isOpen, setIsOpne] = useRecoilState(OpenSideBar)
+  const isOpen = useRecoilValue(OpenSideBar)
   const router = useRouter()
 
   const isActive = (path: string) => {
-    return path === String(router.route)
+    console.log(path)
+    return path.split('/')[1] === String(router.route.split('/')[1])
   }
 
   return (
     <aside
       className={`${
-        isOpen ? 'w-52' : 'w-0 lg:w-14'
-      } fixed top-14 z-10 min-h-screen bg-slate-500 drop-shadow-2xl lg:static  ${className}`}
+        isOpen ? 'w-52' : ['hidden', 'md:block', 'md:w-14'].join(' ')
+      } fixed top-14 left-0 bottom-0 min-h-screen border-r-2 bg-slate-500
+       drop-shadow-2xl  md:static ${className}`}
     >
-      <div className="relative">
-        <div className={`absolute -top-14 z-20 px-1 py-0.5`}>
-          <IconButton className={'group'} onClick={() => setIsOpne(!isOpen)}>
-            <div className="">
-              <Bars3Icon className={`visible w-7 group-hover:hidden`} />
-              <ChevronDoubleRightIcon
-                className={`${
-                  isOpen ? 'rotate-180' : ''
-                } hidden w-7 group-hover:inline-block`}
-              />
-            </div>
-          </IconButton>
-        </div>
-      </div>
-      <div className={`lg:block ${isOpen ? '' : 'hidden'}`}>
+      <div className={`md:block ${isOpen ? '' : 'hidden'}`}>
         {sideBarNavigations.map((navigation) => (
-          <Link href={navigation.path} key={navigation.pageName}>
-            <div className="ml-0.5 p-1">
-              <IconTextButton
-                className={`rounded-md ${
-                  isActive(navigation.path) ? 'bg-slate-400' : ''
-                }`}
-                icon={navigation.icon}
-              >
-                <div className={`${isOpen ? 'block' : 'hidden'}`}>
-                  {navigation.pageName}
-                </div>
-              </IconTextButton>
-            </div>
+          <Link
+            as={navigation.path}
+            href={navigation.path}
+            key={navigation.pageName}
+          >
+            <Tooltip
+              className={`${isOpen ? 'hidden' : 'block'}`}
+              name={navigation.pageName}
+              position={POSITION_TYPE.LEFT}
+            >
+              <div className="w-full">
+                <IconTextButton
+                  className={`${
+                    isActive(navigation.path) ? 'bg-slate-600' : ''
+                  } pl-2.5`}
+                  icon={navigation.icon}
+                >
+                  <div className={`${isOpen ? 'block' : 'hidden'}`}>
+                    {navigation.pageName}
+                  </div>
+                </IconTextButton>
+                <hr />
+              </div>
+            </Tooltip>
           </Link>
         ))}
       </div>

@@ -11,15 +11,15 @@ type AuthenticatorProps = {
 
 export const Authenticator: FC<AuthenticatorProps> = ({ children }) => {
   const [loading, setLoading] = useRecoilState(LoadingAtom)
-  const { isLogin } = useAuth()
+  const { user } = useAuth()
   const router = useRouter()
 
   useEffect(() => {
-    if (!isLogin() && router.pathname !== '/login') {
+    if (user === null && router.pathname !== '/login') {
       router.push('/login')
     }
 
-    if (isLogin() && ['/login', '/'].includes(router.pathname)) {
+    if (user && ['/login', '/'].includes(router.pathname)) {
       setLoading(true)
       router.push('/home')
     }
@@ -29,7 +29,7 @@ export const Authenticator: FC<AuthenticatorProps> = ({ children }) => {
         setLoading(false)
       }, 1000)
     }
-  }, [isLogin, router, loading, setLoading])
+  }, [user, router, loading, setLoading])
 
   return <>{loading ? <Spinner /> : children}</>
 }

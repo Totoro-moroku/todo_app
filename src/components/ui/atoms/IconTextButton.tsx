@@ -1,5 +1,5 @@
+import { IconBox } from '@/components/ui/atoms/IconBox'
 import { FC, ReactNode } from 'react'
-import { IconBox } from './IconBox'
 
 export const IconTextButton: FC<{
   icon?: ReactNode

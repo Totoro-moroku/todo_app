@@ -1,17 +1,15 @@
-import Header from '@/components/layouts/Header'
 import { Layout } from '@/components/layouts/Layout'
-import { SideBar } from '@/components/layouts/SideBar'
+import { Main } from '@/components/layouts/Main'
+import SideMenu from '@/components/ui/elements/SideMenu'
 import ProfileForm from '@/components/ui/parts/ProfileForm'
 import { NextPage } from 'next'
 
 const Profile: NextPage = () => {
   return (
     <Layout title="profile" className="h-screen bg-slate-50 ">
-      <Header />
-      <main className="flex">
-        <SideBar className={'flex-none'} />
-        <div className="flex flex-none">
-          <div className="w-52 border">
+      <Main>
+        <div className="flex">
+          <SideMenu className="">
             <main>
               <div>
                 <div className="border-b-2 px-2 hover:bg-slate-200">
@@ -25,8 +23,8 @@ const Profile: NextPage = () => {
                 </div>
               </div>
             </main>
-          </div>
-          <div className="bg-slate-50">
+          </SideMenu>
+          <div className="grow-1 w-full bg-slate-50">
             <div className="mx-auto pt-10">
               <div className="mx-10 max-w-4xl md:min-w-max">
                 <div>
@@ -41,7 +39,7 @@ const Profile: NextPage = () => {
             </div>
           </div>
         </div>
-      </main>
+      </Main>
     </Layout>
   )
 }

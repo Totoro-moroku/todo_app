@@ -1,5 +1,5 @@
+import { Profile } from '@/types'
 import { atom } from 'recoil'
-import { Profile } from '../types'
 
 export const ProfileAtom = atom<Profile | null>({
   key: 'profile',

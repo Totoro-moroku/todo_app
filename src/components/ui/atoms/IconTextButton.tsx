@@ -20,7 +20,7 @@ export const IconTextButton: FC<{
   >
     <div className="flex space-x-1">
       <div>
-        <IconBox>{icon}</IconBox>
+        <IconBox className="p-1">{icon}</IconBox>
       </div>
       <div className="flex items-center">{children}</div>
     </div>

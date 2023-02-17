@@ -1,4 +1,4 @@
-import { ReactNode, FC } from 'react'
+import { FC, ReactNode } from 'react'
 
 export const IconBox: FC<{ children: ReactNode; className?: string }> = ({
   children,
@@ -6,7 +6,7 @@ export const IconBox: FC<{ children: ReactNode; className?: string }> = ({
 }) => {
   return (
     <div className="h-full w-full">
-      <div className={`${className} flex items-center justify-center p-1`}>
+      <div className={`${className} flex items-center justify-center`}>
         {children}
       </div>
     </div>

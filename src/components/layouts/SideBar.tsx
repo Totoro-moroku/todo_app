@@ -58,12 +58,12 @@ export const SideBar: FC<SideBarProps> = ({ className }) => {
   return (
     <aside
       className={`${
-        isOpen ? 'w-52' : ['hidden', 'md:block', 'md:w-14'].join(' ')
+        isOpen ? 'w-52' : ['hidden', 'md:block', 'md:w-13'].join(' ')
       } ${[
         'fixed',
-        'top-14',
         'left-0',
         'bottom-0 ',
+        'top-12',
         'min-h-screen',
         'border-r-2',
         'bg-slate-500',
@@ -87,7 +87,7 @@ export const SideBar: FC<SideBarProps> = ({ className }) => {
                 <IconTextButton
                   className={`${
                     isActive(navigation.path) ? 'bg-slate-600' : ''
-                  } pl-2.5`}
+                  } pl-2`}
                   icon={navigation.icon}
                 >
                   <div className={`${isOpen ? 'block' : 'hidden'}`}>

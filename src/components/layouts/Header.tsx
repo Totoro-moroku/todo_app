@@ -41,31 +41,31 @@ export const Header: FC<HeaderProps> = ({ className }) => {
         'bg-slate-400',
       ].join(' ')}`}
     >
-      <div className="flex h-14 pl-2 pr-4">
-        <div className="w-12">
+      <div className="flex h-12 p-1">
+        <div className="h-10 w-10">
           <IconButton className={'group'} onClick={() => setIsOpne(!isOpen)}>
             <div className="">
-              <Bars3Icon className={`visible w-7 group-hover:hidden`} />
+              <Bars3Icon className={`visible w-6 group-hover:hidden`} />
               <ChevronDoubleRightIcon
                 className={`${
                   isOpen ? 'rotate-180' : ''
-                } hidden w-7 group-hover:inline-block`}
+                } hidden w-6 group-hover:inline-block`}
               />
             </div>
           </IconButton>
         </div>
         <div className="grow"></div>
-        <div className="flex">
-          <div className="hidden w-12 md:inline-block">
+        <div className="flex h-10 space-x-1 pr-2">
+          <div className="hidden h-full w-10 md:inline-block">
             <IconButtonMenu
               title={NoticeTitle}
               items={NoticeItems}
               className="w-96"
             >
-              <BellIcon className="w-7" />
+              <BellIcon className="w-6" />
             </IconButtonMenu>
           </div>
-          <div className="w-12 ">
+          <div className="h-10 w-10">
             <IconButtonMenu
               title={<UserTitle user={user} />}
               items={[
@@ -80,7 +80,7 @@ export const Header: FC<HeaderProps> = ({ className }) => {
               ]}
               className="absolute z-50 w-80 md:w-96"
             >
-              <UserIcon className="w-7" />
+              <UserIcon className="w-6" />
             </IconButtonMenu>
           </div>
           <LogoutModal />

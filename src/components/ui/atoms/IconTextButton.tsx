@@ -1,7 +1,7 @@
-import { IconBox } from '@/components/ui/atoms/IconBox'
+import IconBox from '@/components/ui/atoms/IconBox'
 import { FC, ReactNode } from 'react'
 
-export const IconTextButton: FC<{
+const IconTextButton: FC<{
   icon?: ReactNode
   children?: ReactNode
   text?: ReactNode
@@ -26,3 +26,5 @@ export const IconTextButton: FC<{
     </div>
   </div>
 )
+
+export default IconTextButton

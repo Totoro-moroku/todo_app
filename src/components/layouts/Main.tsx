@@ -1,12 +1,12 @@
-import { Header } from '@/components/layouts/Header'
-import { SideBar } from '@/components/layouts/SideBar'
+import Header from '@/components/layouts/Header'
+import SideBar from '@/components/layouts/SideBar'
 import { FC, ReactNode } from 'react'
 
 type MainProps = {
   children: ReactNode
 }
 
-export const Main: FC<MainProps> = ({ children }) => {
+const Main: FC<MainProps> = ({ children }) => {
   return (
     <main className="relative">
       <Header className="fixed top-0 z-10" />
@@ -17,3 +17,5 @@ export const Main: FC<MainProps> = ({ children }) => {
     </main>
   )
 }
+
+export default Main

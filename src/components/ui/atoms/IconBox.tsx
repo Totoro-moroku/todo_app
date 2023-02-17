@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react'
 
-export const IconBox: FC<{ children: ReactNode; className?: string }> = ({
+const IconBox: FC<{ children: ReactNode; className?: string }> = ({
   children,
   className,
 }) => {
@@ -12,3 +12,5 @@ export const IconBox: FC<{ children: ReactNode; className?: string }> = ({
     </div>
   )
 }
+
+export default IconBox

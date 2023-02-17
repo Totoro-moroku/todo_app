@@ -1,11 +1,11 @@
-import { IconBox } from '@/components/ui/atoms/IconBox'
-import { Modal } from '@/components/ui/elements/Modal'
-import { useAuth } from '@/hooks/useAuth'
+import IconBox from '@/components/ui/atoms/IconBox'
+import Modal from '@/components/ui/elements/Modal'
+import useAuth from '@/hooks/useAuth'
 import { OpenLogoutAtom } from '@/recoil/other'
 import { ExclamationCircleIcon } from '@heroicons/react/24/outline'
 import { useRecoilState } from 'recoil'
 
-export const LogoutModal = () => {
+const LogoutModal = () => {
   const [isOpen, setIsOpen] = useRecoilState(OpenLogoutAtom)
   const onClose = () => {
     setIsOpen(false)
@@ -75,3 +75,5 @@ export const LogoutModal = () => {
     </Modal>
   )
 }
+
+export default LogoutModal

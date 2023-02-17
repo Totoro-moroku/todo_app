@@ -1,7 +1,8 @@
-import { Layout } from '@/components/layouts/Layout'
-import { Main } from '@/components/layouts/Main'
+import Layout from '@/components/layouts/Layout'
+import Main from '@/components/layouts/Main'
+import TableCell from '@/components/ui/atoms/TableCell'
 import SideMenu from '@/components/ui/elements/SideMenu'
-import { useTasks } from '@/hooks/useTasks'
+import useTasks from '@/hooks/useTasks'
 import { LineLoadingAtom } from '@/recoil/other'
 import { FC } from 'react'
 import { useRecoilValue } from 'recoil'
@@ -35,8 +36,7 @@ const Task: FC = () => {
                     ) : (
                       tasks.map((task, index) => (
                         <div key={index} className={`flex h-9 flex-row`}>
-                          <div className="flex-1">{task.id}</div>
-                          <div className="flex-1">{task.title}</div>
+                          <TableCell>{task.title}</TableCell>
                         </div>
                       ))
                     )}

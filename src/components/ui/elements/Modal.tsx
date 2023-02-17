@@ -7,7 +7,7 @@ type Props = {
   onClose: VoidFunction
 }
 
-export const Modal = ({ isOpen, children, onClose }: Props) => {
+const Modal = ({ isOpen, children, onClose }: Props) => {
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog
@@ -50,3 +50,5 @@ export const Modal = ({ isOpen, children, onClose }: Props) => {
     </Transition>
   )
 }
+
+export default Modal

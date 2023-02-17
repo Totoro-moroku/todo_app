@@ -1,4 +1,4 @@
-import { Layout } from '@/components/layouts/Layout'
+import Layout from '@/components/layouts/Layout'
 import { FC } from 'react'
 
 const Index: FC = () => {

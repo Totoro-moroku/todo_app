@@ -1,7 +1,7 @@
-import { FormButton } from '@/components/ui/atoms/FormButton'
-import { FormInput } from '@/components/ui/atoms/FormInput'
+import FormButton from '@/components/ui/atoms/FormButton'
+import FormInput from '@/components/ui/atoms/FormInput'
 import Form from '@/components/ui/elements/Form'
-import { useAuth } from '@/hooks/useAuth'
+import useAuth from '@/hooks/useAuth'
 import { useState } from 'react'
 
 function SignUpForm() {

@@ -6,7 +6,7 @@ import { useRecoilValue, useSetRecoilState } from 'recoil'
 
 const database = { from: 'tasks' }
 
-export const useTasks = () => {
+const useTasks = () => {
   const setTasks = useSetRecoilState(TasksAtom)
   const tasks = useRecoilValue(FilteredTasksSelector)
   const setLineLoding = useSetRecoilState(LineLoadingAtom)
@@ -46,3 +46,5 @@ export const useTasks = () => {
     tasks,
   }
 }
+
+export default useTasks

@@ -6,7 +6,7 @@ import {
 import { COLOR_TYPE } from '@/types'
 import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil'
 
-export const useAlert = () => {
+const useAlert = () => {
   const [alert, setAlert] = useRecoilState(AlertAtom)
   const color = useRecoilValue(AlertColorSelector)
   const reset = useResetRecoilState(AlertAtom)
@@ -37,3 +37,5 @@ export const useAlert = () => {
     hideAlert,
   }
 }
+
+export default useAlert

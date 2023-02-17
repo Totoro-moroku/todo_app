@@ -5,7 +5,7 @@ import { atom, useRecoilState, useResetRecoilState } from 'recoil'
 
 const LoddingAtom = atom({ key: 'loading', default: false })
 
-export const useAuth = () => {
+const useAuth = () => {
   const [{ username, email, password }, setAuth] = useRecoilState(AuthAtom)
   const resetAuth = useResetRecoilState(AuthAtom)
   const [user, setUser] = useRecoilState(UserAtom)
@@ -71,3 +71,5 @@ export const useAuth = () => {
     onLogOut,
   }
 }
+
+export default useAuth

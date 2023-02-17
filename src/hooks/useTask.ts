@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-export const useTask = () => {
+const useTask = () => {
   const isInitialized = useRef<boolean>(false)
 
   useEffect(() => {
@@ -9,3 +9,5 @@ export const useTask = () => {
     }
   }, [])
 }
+
+export default useTask

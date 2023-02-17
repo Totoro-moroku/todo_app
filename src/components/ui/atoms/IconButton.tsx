@@ -1,7 +1,7 @@
-import { IconBox } from '@/components/ui/atoms/IconBox'
+import IconBox from '@/components/ui/atoms/IconBox'
 import { FC, ReactNode } from 'react'
 
-export const IconButton: FC<{
+const IconButton: FC<{
   children: ReactNode
   className?: string
   onClick?: VoidFunction
@@ -24,3 +24,5 @@ export const IconButton: FC<{
     </IconBox>
   )
 }
+
+export default IconButton

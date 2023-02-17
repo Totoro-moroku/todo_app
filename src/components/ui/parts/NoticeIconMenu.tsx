@@ -1,4 +1,4 @@
-import { IconBox } from '@/components/ui/atoms/IconBox'
+import IconBox from '@/components/ui/atoms/IconBox'
 import { UserIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 

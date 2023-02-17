@@ -8,7 +8,7 @@ type FormButtonProps = {
   onClick?: any | undefined
 }
 
-export const FormButton: FC<FormButtonProps> = ({
+const FormButton: FC<FormButtonProps> = ({
   type,
   className,
   id,
@@ -28,3 +28,5 @@ export const FormButton: FC<FormButtonProps> = ({
     </>
   )
 }
+
+export default FormButton

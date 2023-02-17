@@ -1,5 +1,6 @@
 import { FC } from 'react'
-export const Spinner: FC = () => {
+
+const Spinner: FC = () => {
   return (
     <div
       className={[
@@ -25,3 +26,5 @@ export const Spinner: FC = () => {
     </div>
   )
 }
+
+export default Spinner

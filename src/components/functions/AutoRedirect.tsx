@@ -6,7 +6,7 @@ type AuthenticatorProps = {
   url: string
 }
 
-export const AutoRedirect: FC<AuthenticatorProps> = ({ children, url }) => {
+const AutoRedirect: FC<AuthenticatorProps> = ({ children, url }) => {
   const router = useRouter()
 
   useEffect(() => {
@@ -16,4 +16,4 @@ export const AutoRedirect: FC<AuthenticatorProps> = ({ children, url }) => {
   return <>{children}</>
 }
 
-
+export default AutoRedirect

@@ -1,6 +1,6 @@
-import { IconButton } from '@/components/ui/atoms/IconButton'
-import { IconButtonMenu } from '@/components/ui/elements/IconButtonMenu'
-import { LogoutModal } from '@/components/ui/parts/LogoutModal'
+import IconButton from '@/components/ui/atoms/IconButton'
+import IconButtonMenu from '@/components/ui/elements/IconButtonMenu'
+import LogoutModal from '@/components/ui/parts/LogoutModal'
 import { NoticeItem, NoticeTitle } from '@/components/ui/parts/NoticeIconMenu'
 import {
   AccountChangeItem,
@@ -9,7 +9,7 @@ import {
   SettingItem,
   UserTitle,
 } from '@/components/ui/parts/UserIconMenu'
-import { useAuth } from '@/hooks/useAuth'
+import useAuth from '@/hooks/useAuth'
 import { OpenLogoutAtom, OpenSideBar } from '@/recoil/other'
 import {
   Bars3Icon,
@@ -26,7 +26,7 @@ type HeaderProps = {
   className?: string | undefined
 }
 
-export const Header: FC<HeaderProps> = ({ className }) => {
+const Header: FC<HeaderProps> = ({ className }) => {
   const { user } = useAuth()
   const setOpen = useSetRecoilState(OpenLogoutAtom)
   const [isOpen, setIsOpne] = useRecoilState(OpenSideBar)
@@ -89,3 +89,5 @@ export const Header: FC<HeaderProps> = ({ className }) => {
     </nav>
   )
 }
+
+export default Header

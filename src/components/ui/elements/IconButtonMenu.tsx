@@ -1,7 +1,7 @@
+import IconBox from '@/components/ui/atoms/IconBox'
+import IconButton from '@/components/ui/atoms/IconButton'
 import { Menu, Transition } from '@headlessui/react'
 import { FC, ReactNode } from 'react'
-import { IconBox } from '../atoms/IconBox'
-import { IconButton } from '../atoms/IconButton'
 
 type Menu = {
   children?: ReactNode
@@ -10,12 +10,7 @@ type Menu = {
   className?: string
 }
 
-export const IconButtonMenu: FC<Menu> = ({
-  children,
-  title,
-  className,
-  items,
-}) => {
+const IconButtonMenu: FC<Menu> = ({ children, title, className, items }) => {
   return (
     <Menu>
       {({ open, close }) => (
@@ -66,3 +61,5 @@ export const IconButtonMenu: FC<Menu> = ({
     </Menu>
   )
 }
+
+export default IconButtonMenu

@@ -8,7 +8,7 @@ type AlertDailogProps = {
   onClose(value: boolean): void
 }
 
-export const AlertDailog: FC<AlertDailogProps> = ({
+const AlertDailog: FC<AlertDailogProps> = ({
   open,
   children,
   style,
@@ -49,3 +49,5 @@ export const AlertDailog: FC<AlertDailogProps> = ({
     </Dialog>
   )
 }
+
+export default AlertDailog

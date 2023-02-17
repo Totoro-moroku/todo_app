@@ -1,4 +1,4 @@
-import { IconTextButton } from '@/components/ui/atoms/IconTextButton'
+import IconTextButton from '@/components/ui/atoms/IconTextButton'
 import Tooltip from '@/components/ui/elements/Tooltip'
 import { OpenSideBar } from '@/recoil/other'
 import { POSITION_TYPE } from '@/types'
@@ -27,7 +27,7 @@ const sideBarNavigations: Navigation[] = [
   },
   {
     pageName: 'タスク',
-    path: '/task',
+    path: '/tasks',
     icon: <CheckCircleIcon className="w-6" />,
   },
   {
@@ -46,7 +46,7 @@ type SideBarProps = {
   className?: string | undefined
 }
 
-export const SideBar: FC<SideBarProps> = ({ className }) => {
+const SideBar: FC<SideBarProps> = ({ className }) => {
   const isOpen = useRecoilValue(OpenSideBar)
   const router = useRouter()
 
@@ -103,3 +103,5 @@ export const SideBar: FC<SideBarProps> = ({ className }) => {
     </aside>
   )
 }
+
+export default SideBar

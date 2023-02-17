@@ -1,4 +1,4 @@
-import { IconBox } from '@/components/ui//atoms/IconBox'
+import IconBox from '@/components/ui//atoms/IconBox'
 import { UserIcon } from '@heroicons/react/24/outline'
 import { User } from '@supabase/supabase-js'
 import Link from 'next/link'

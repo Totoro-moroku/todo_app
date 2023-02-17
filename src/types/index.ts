@@ -14,6 +14,16 @@ export type Profile = {
   self_introduction: string | undefined
 }
 
+export type Task = {
+  id: string | undefined
+  create_at: string | Date
+  updated_at: string | Date
+  title: string | undefined
+  content: string | undefined
+  user_id: string | undefined
+  manage_user_id: string | undefined
+}
+
 export type EditProgile = Omit<
   Profile,
   'updated_at' | 'avatar_url' | 'username '
@@ -36,4 +46,11 @@ export type AlertColorType = {
 export enum COLOR_TYPE {
   GREEN,
   RED,
+}
+
+export enum POSITION_TYPE {
+  TOP,
+  BOTTOM,
+  LEFT,
+  RIGHT,
 }

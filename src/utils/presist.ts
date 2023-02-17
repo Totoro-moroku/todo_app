@@ -13,7 +13,7 @@ export const useSsrComplectedState = () => {
 
 export const { persistAtom } = recoilPersist({
   key: 'recoil.persist',
-  storage: typeof window === 'undefined' ? undefined : sessionStorage,
+  storage: typeof window === 'undefined' ? undefined : localStorage,
 })
 
 export const persistAtomEffect = <T>(param: Parameters<AtomEffect<T>>[0]) => {

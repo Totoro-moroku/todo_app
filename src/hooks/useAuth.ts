@@ -11,8 +11,6 @@ export const useAuth = () => {
   const [user, setUser] = useRecoilState(UserAtom)
   const [loading, setLoading] = useRecoilState(LoddingAtom)
 
-  const isLogin = () => user !== null
-
   const setUserData = (data: User | null) => {
     setUser(data)
   }
@@ -56,7 +54,6 @@ export const useAuth = () => {
       if (error) throw new Error(error.message)
       setUserData(null)
       resetAuth()
-      console.log('成功')
     } catch (error) {
       alert(error)
     }
@@ -64,10 +61,9 @@ export const useAuth = () => {
 
   return {
     auth: { username, email, password },
-    user,
+    user: user,
     loading,
     setLoading,
-    isLogin,
     setAuth,
     resetAuth,
     onSignUp,

@@ -1,5 +1,5 @@
-import { Layout } from '@/components/layouts/Layout'
-import { Main } from '@/components/layouts/Main'
+import Layout from '@/components/layouts/Layout'
+import Main from '@/components/layouts/Main'
 import SideMenu from '@/components/ui/elements/SideMenu'
 import ProfileForm from '@/components/ui/parts/ProfileForm'
 import { NextPage } from 'next'

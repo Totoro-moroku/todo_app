@@ -1,7 +1,7 @@
 import { LineLoadingAtom, LoadingAtom } from '@/recoil/other'
 import { useRecoilState } from 'recoil'
 
-export const useLoading = () => {
+const useLoading = () => {
   const [loading, setLoading] = useRecoilState(LoadingAtom)
   const [lineLoading, setLineLoading] = useRecoilState(LineLoadingAtom)
 
@@ -12,3 +12,5 @@ export const useLoading = () => {
     setLineLoading,
   }
 }
+
+export default useLoading

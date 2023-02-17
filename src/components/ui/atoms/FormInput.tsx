@@ -15,7 +15,7 @@ type FormInputProps = {
   setValue?: any | undefined
 }
 
-export const FormInput: FC<FormInputProps> = ({
+const FormInput: FC<FormInputProps> = ({
   type,
   id,
   className,
@@ -48,3 +48,5 @@ export const FormInput: FC<FormInputProps> = ({
     </>
   )
 }
+
+export default FormInput

@@ -1,7 +1,7 @@
-import { useAlert } from '@/hooks/useAlert'
+import AlertDailog from '@/components/ui/elements/AlertDailog'
+import useAlert from '@/hooks/useAlert'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { FC, ReactNode, useEffect } from 'react'
-import { AlertDailog } from '../ui/elements/AlertDailog'
 
 type AlertProps = {
   children: ReactNode

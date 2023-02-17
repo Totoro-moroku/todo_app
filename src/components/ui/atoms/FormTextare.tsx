@@ -11,7 +11,7 @@ type FormTextareaProps = {
   setValue?: any | undefined
 }
 
-export const FormTextarea: FC<FormTextareaProps> = ({
+const FormTextarea: FC<FormTextareaProps> = ({
   id,
   className,
   placeholder,
@@ -36,3 +36,5 @@ export const FormTextarea: FC<FormTextareaProps> = ({
     </>
   )
 }
+
+export default FormTextarea

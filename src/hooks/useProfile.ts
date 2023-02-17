@@ -5,7 +5,7 @@ import { useRecoilState } from 'recoil'
 
 const database = { from: 'profiles' }
 
-export const useProfile = (userId: string | undefined) => {
+const useProfile = (userId: string | undefined) => {
   const [profile, setProfile] = useRecoilState(ProfileAtom)
   const [currentProfile, setCurrentProfile] = useRecoilState(CurrentProfileAtom)
 
@@ -72,3 +72,5 @@ export const useProfile = (userId: string | undefined) => {
     updateProfile,
   }
 }
+
+export default useProfile

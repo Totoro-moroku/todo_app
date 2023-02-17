@@ -1,7 +1,7 @@
+import IconBox from '@/components/ui/atoms/IconBox'
+import IconButton from '@/components/ui/atoms/IconButton'
 import { Menu, Transition } from '@headlessui/react'
 import { FC, ReactNode } from 'react'
-import { IconBox } from '../atoms/IconBox'
-import { IconButton } from '../atoms/IconButton'
 
 type Menu = {
   children?: ReactNode
@@ -10,12 +10,7 @@ type Menu = {
   className?: string
 }
 
-export const IconButtonMenu: FC<Menu> = ({
-  children,
-  title,
-  className,
-  items,
-}) => {
+const IconButtonMenu: FC<Menu> = ({ children, title, className, items }) => {
   return (
     <Menu>
       {({ open, close }) => (
@@ -36,7 +31,21 @@ export const IconButtonMenu: FC<Menu> = ({
           >
             {items && (
               <Menu.Items
-                className={`absolute right-0 ${className}  mt-2 mr-2 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
+                className={`${className} ${[
+                  'absolute',
+                  'right-0',
+                  'mt-2',
+                  'mr-2',
+                  'origin-top-right',
+                  'rounded-md',
+                  'bg-white',
+                  'py-1',
+                  'shadow-lg',
+                  'ring-1',
+                  'ring-black',
+                  'ring-opacity-5',
+                  'focus:outline-none',
+                ].join(' ')}`}
               >
                 {title || <div>{title}</div>}
                 {items?.map((item, i) => (
@@ -52,3 +61,5 @@ export const IconButtonMenu: FC<Menu> = ({
     </Menu>
   )
 }
+
+export default IconButtonMenu

@@ -7,7 +7,7 @@ type Props = {
   onClose: VoidFunction
 }
 
-export const Modal = ({ isOpen, children, onClose }: Props) => {
+const Modal = ({ isOpen, children, onClose }: Props) => {
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog
@@ -25,7 +25,14 @@ export const Modal = ({ isOpen, children, onClose }: Props) => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="fixed inset-0 bg-slate-600 bg-opacity-30" />
+            <Dialog.Overlay
+              className={[
+                'fixed',
+                'inset-0',
+                'bg-slate-600',
+                'bg-opacity-30',
+              ].join(' ')}
+            />
           </Transition.Child>
           <Transition.Child
             as={Fragment}
@@ -43,3 +50,5 @@ export const Modal = ({ isOpen, children, onClose }: Props) => {
     </Transition>
   )
 }
+
+export default Modal

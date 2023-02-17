@@ -9,7 +9,7 @@ type LayoutProps = {
   className?: string | undefined
 }
 
-export const Layout: FC<LayoutProps> = ({ children, title, className }) => {
+const Layout: FC<LayoutProps> = ({ children, title, className }) => {
   const setSsrCompleted = useSsrComplectedState()
 
   useLayoutEffect(setSsrCompleted, [setSsrCompleted])
@@ -25,3 +25,5 @@ export const Layout: FC<LayoutProps> = ({ children, title, className }) => {
     </>
   )
 }
+
+export default Layout

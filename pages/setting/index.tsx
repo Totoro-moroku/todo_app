@@ -1,5 +1,5 @@
-import { Spinner } from '@/components/functions/Spinner'
-import { Layout } from '@/components/layouts/Layout'
+import Spinner from '@/components/functions/Spinner'
+import Layout from '@/components/layouts/Layout'
 import { NextPage } from 'next'
 import Router from 'next/router'
 

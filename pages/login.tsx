@@ -1,23 +1,52 @@
+import Layout from '@/components/layouts/Layout'
+import IconBox from '@/components/ui/atoms/IconBox'
+import LoginForm from '@/components/ui/parts/LoginForm'
+import SignUpForm from '@/components/ui/parts/SignUpForm'
+import useAuth from '@/hooks/useAuth'
 import { CheckBadgeIcon } from '@heroicons/react/24/outline'
 import { NextPage } from 'next'
 import { useState } from 'react'
-import { Layout } from '@/components/layouts/Layout'
-import { IconBox } from '@/components/ui/atoms/IconBox'
-import LoginForm from '@/components/ui/parts/LoginForm'
-import SignUpForm from '@/components/ui/parts/SignUpForm'
-import { useAuth } from '@/hooks/useAuth'
 
-export const Login: NextPage = ({}) => {
+const Login: NextPage = ({}) => {
   const [isLoginPage, setIsLoginPaeg] = useState(true)
   const { resetAuth } = useAuth()
 
   return (
-    <Layout title="login" className="w-screen h-screen bg-slate-50">
+    <Layout title="login" className="h-screen w-screen bg-slate-50">
       <>
         <div>
-          <div className="flex mx-1 sm:h-screen sm:w-screen sm:items-center sm:justify-center">
-            <div className="w-screen mt-8 lg: sm:mx-14 sm:mt-0 sm:max-w-max sm:rounded-md sm:border-2 sm:border-slate-400 sm:shadow-lg">
-              <div className="mx-10 text-xl border-slate-400 sm:mx-0 sm:border-b-2 sm:text-sm">
+          <div
+            className={[
+              'mx-1',
+              'flex',
+              'sm:h-screen',
+              'sm:w-screen',
+              'sm:items-center sm:justify-center',
+            ].join(' ')}
+          >
+            <div
+              className={[
+                'w-screen',
+                'sm:mx-14',
+                ' sm:mt-0',
+                'sm:max-w-max',
+                'sm:rounded-md',
+                'sm:border-2',
+                'sm:border-slate-400',
+                'sm:shadow-lg',
+                'lg:mt-8',
+              ].join(' ')}
+            >
+              <div
+                className={[
+                  'sm:text-sm',
+                  'mx-10',
+                  'border-slate-400',
+                  'text-xl',
+                  'sm:mx-0',
+                  'sm:border-b-2',
+                ].join(' ')}
+              >
                 <div className="flex sm:py-2 sm:px-1">
                   <div>
                     <IconBox>

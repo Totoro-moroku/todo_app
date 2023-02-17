@@ -33,9 +33,15 @@ export const Header: FC<HeaderProps> = ({ className }) => {
 
   return (
     <nav
-      className={`${className} right-0 top-0 left-0 border-b-2 bg-slate-400`}
+      className={`${className} ${[
+        'right-0',
+        'top-0',
+        'left-0',
+        'border-b-2',
+        'bg-slate-400',
+      ].join(' ')}`}
     >
-      <div className="flex h-14 pl-2 pr-4 ">
+      <div className="flex h-14 pl-2 pr-4">
         <div className="w-12">
           <IconButton className={'group'} onClick={() => setIsOpne(!isOpen)}>
             <div className="">

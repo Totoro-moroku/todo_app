@@ -59,8 +59,17 @@ export const SideBar: FC<SideBarProps> = ({ className }) => {
     <aside
       className={`${
         isOpen ? 'w-52' : ['hidden', 'md:block', 'md:w-14'].join(' ')
-      } fixed top-14 left-0 bottom-0 min-h-screen border-r-2 bg-slate-500
-       drop-shadow-2xl  md:static ${className}`}
+      } ${[
+        'fixed',
+        'top-14',
+        'left-0',
+        'bottom-0 ',
+        'min-h-screen',
+        'border-r-2',
+        'bg-slate-500',
+        'drop-shadow-2xl',
+        'md:static',
+      ].join(' ')} ${className}`}
     >
       <div className={`md:block ${isOpen ? '' : 'hidden'}`}>
         {sideBarNavigations.map((navigation) => (

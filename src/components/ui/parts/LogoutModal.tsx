@@ -13,7 +13,17 @@ export const LogoutModal = () => {
   const { onLogOut } = useAuth()
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <div className="mx-5 my-52 inline-block transform overflow-hidden align-middle transition-all">
+      <div
+        className={[
+          'mx-5',
+          'my-52',
+          'inline-block',
+          ' transform',
+          'overflow-hidden',
+          'align-middle',
+          'transition-all',
+        ].join(' ')}
+      >
         <main className="w-80 rounded-md bg-white px-4 py-2 shadow-xl">
           <div className="flex w-full flex-col items-stretch justify-items-center">
             <div className="flex py-2 text-left text-sm text-gray-500">
@@ -26,7 +36,16 @@ export const LogoutModal = () => {
             </div>
             <div className="flex h-11 space-x-2">
               <button
-                className="flex-1 rounded-md bg-slate-400 py-1 ring-slate-300 hover:bg-slate-500 hover:text-white hover:ring-1"
+                className={[
+                  'flex-1',
+                  'rounded-md',
+                  'bg-slate-400',
+                  'py-1',
+                  'ring-slate-300',
+                  'hover:bg-slate-500',
+                  ' hover:text-white',
+                  'hover:ring-1',
+                ].join(' ')}
                 onClick={() => {
                   onClose()
                   onLogOut()
@@ -35,7 +54,16 @@ export const LogoutModal = () => {
                 はい
               </button>
               <button
-                className="flex-1 rounded-md bg-slate-400 py-1 ring-slate-300 hover:bg-slate-500 hover:text-white hover:ring-1"
+                className={[
+                  'flex-1',
+                  'rounded-md',
+                  'bg-slate-400',
+                  'py-1',
+                  'ring-slate-300',
+                  'hover:bg-slate-500',
+                  'hover:text-white',
+                  'hover:ring-1',
+                ].join(' ')}
                 onClick={onClose}
               >
                 いいえ

@@ -18,12 +18,30 @@ export const AlertDailog: FC<AlertDailogProps> = ({
     <Dialog
       open={open}
       as="div"
-      className="fixed inset-0 z-20 flex justify-center overflow-y-auto transition duration-500 ease"
+      className={[
+        'ease',
+        'fixed',
+        'inset-0',
+        'z-20',
+        'flex',
+        'justify-center',
+        'overflow-y-auto',
+        'transition',
+        'duration-500',
+      ].join(' ')}
       onClose={onClose}
     >
       <Dialog.Panel className={`absolute top-12 m-1 text-center`}>
         <div
-          className={`${style} w-64 rounded-md border-2 bg-white p-2  text-lg shadow-xl`}
+          className={`${style} ${[
+            'w-64',
+            'rounded-md',
+            'border-2',
+            'bg-white',
+            'p-2',
+            'text-lg',
+            'shadow-xl',
+          ].join(' ')}`}
         >
           {children}
         </div>

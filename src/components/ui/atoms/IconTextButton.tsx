@@ -9,7 +9,13 @@ export const IconTextButton: FC<{
   onClick?: VoidFunction
 }> = ({ icon, children, className, onClick }) => (
   <div
-    className={`cursor-pointer p-1 text-white hover:bg-slate-300 hover:text-black ${className}`}
+    className={`${[
+      'cursor-pointer',
+      'p-1',
+      'text-white',
+      'hover:bg-slate-300',
+      ' hover:text-black',
+    ].join(' ')} ${className}`}
     onClick={onClick}
   >
     <div className="flex space-x-1">

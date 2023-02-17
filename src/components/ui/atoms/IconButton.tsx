@@ -9,7 +9,14 @@ export const IconButton: FC<{
   return (
     <IconBox>
       <div
-        className={`cursor-pointer rounded-md p-2 text-white hover:bg-slate-300 hover:text-black ${className}`}
+        className={`${[
+          'cursor-pointer',
+          'rounded-md',
+          'p-2',
+          'text-white',
+          'hover:bg-slate-300',
+          ' hover:text-black',
+        ].join(' ')} ${className}`}
         onClick={onClick}
       >
         {children}

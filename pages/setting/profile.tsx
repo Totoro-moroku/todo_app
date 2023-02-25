@@ -6,10 +6,10 @@ import { NextPage } from 'next'
 
 const Profile: NextPage = () => {
   return (
-    <Layout title="profile" className="h-screen bg-slate-50 ">
+    <Layout title="profile" className="bg-slate-50 ">
       <Main>
         <div className="flex">
-          <SideMenu className="">
+          <SideMenu className="w-0 flex-none md:w-52">
             <main>
               <div>
                 <div className="border-b-2 px-2 hover:bg-slate-200">

@@ -1,5 +1,6 @@
 import { LineLoadingAtom } from '@/recoil/other'
-import { FilteredTasksSelector, TasksAtom } from '@/recoil/task'
+import { TasksAtom, TasksPageLimtAtom } from '@/recoil/task/atom'
+import { FilteredTasksSelector } from '@/recoil/task/selector'
 import { supabase } from '@/utils/supabase'
 import { useEffect } from 'react'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
@@ -8,6 +9,7 @@ const database = { from: 'tasks' }
 
 const useTasks = () => {
   const setTasks = useSetRecoilState(TasksAtom)
+  const pageLimit = useRecoilValue(TasksPageLimtAtom)
   const tasks = useRecoilValue(FilteredTasksSelector)
   const setLineLoding = useSetRecoilState(LineLoadingAtom)
 
@@ -16,7 +18,6 @@ const useTasks = () => {
     try {
       setLineLoding(true)
       getTasks()
-    } catch (error) {
     } finally {
       setTimeout(() => {
         setLineLoding(false)
@@ -29,6 +30,7 @@ const useTasks = () => {
     const { data, error, status, statusText } = await supabase
       .from(database.from)
       .select('*')
+      .limit(pageLimit)
 
     if (error && status === 406) {
       throw new Error(error.message)

@@ -4,15 +4,16 @@ import { FC, ReactNode } from 'react'
 
 type MainProps = {
   children: ReactNode
+  className?: string
 }
 
-const Main: FC<MainProps> = ({ children }) => {
+const Main: FC<MainProps> = ({ children, className }) => {
   return (
-    <main className="relative">
-      <Header className="fixed top-0 z-10" />
-      <div className="fixed top-12 flex w-screen">
-        <SideBar className="fixed grow-0" />
-        <main className="grow">{children}</main>
+    <main className="fixed flex min-h-screen flex-col">
+      <Header className="z-10 w-screen flex-none" />
+      <div className="flex flex-1 items-stretch">
+        <SideBar className="flex-none" />
+        <main className={`flex-1 gap-y-0 ${className}`}>{children}</main>
       </div>
     </main>
   )

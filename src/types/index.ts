@@ -48,6 +48,17 @@ export enum COLOR_TYPE {
   RED,
 }
 
+const PageLimitType = {
+  FIFTY: 50,
+  HUNDRED: 100,
+  FIVE_HUNDRED: 500,
+  THOUSAND: 1000,
+} as const
+
+export type PAGE_LIMIT_TYPE = (typeof PageLimitType)[keyof typeof PageLimitType]
+export const ALL_PAGE_LIMIT = Object.values(PageLimitType)
+
+
 export enum POSITION_TYPE {
   TOP,
   BOTTOM,

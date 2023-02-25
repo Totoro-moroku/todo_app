@@ -1,33 +1,6 @@
+import { CurrentTaskAtom, TasksAtom } from '@/recoil/task/atom'
 import { Task } from '@/types'
-import { atom, selector } from 'recoil'
-
-export const TaskAtom = atom<Task | null>({
-  key: 'task',
-  default: null,
-})
-
-export const TasksAtom = atom<Task[] | []>({
-  key: 'tasks',
-  default: [],
-})
-
-export const TasksFiltersAtom = atom<[]>({
-  key: 'tasks.filters',
-  default: [],
-})
-
-export const CurrentTaskAtom = atom<Task | null>({
-  key: 'current.task',
-  default: {
-    id: '',
-    create_at: '',
-    updated_at: '',
-    title: '',
-    content: '',
-    user_id: '',
-    manage_user_id: '',
-  },
-})
+import { selector } from 'recoil'
 
 export const FilteredTasksSelector = selector<Task[] | []>({
   key: 'tasks.filtered',

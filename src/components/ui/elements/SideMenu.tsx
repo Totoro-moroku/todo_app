@@ -6,11 +6,7 @@ type SideMenuPorps = {
 }
 
 const SideMenu: FC<SideMenuPorps> = ({ className, children }) => {
-  return (
-    <div className={`${className} bg-slate-0 h-screen w-52 border-r-2`}>
-      {children}
-    </div>
-  )
+  return <div className={`${className} bg-slate-0 border-r-2`}>{children}</div>
 }
 
 export default SideMenu

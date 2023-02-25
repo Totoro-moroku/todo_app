@@ -1,4 +1,5 @@
 import { Alert } from '@/components/functions/Alert'
+import LineLoading from '@/components/functions/LineLoading'
 import FormButton from '@/components/ui/atoms/FormButton'
 import FormInput from '@/components/ui/atoms/FormInput'
 import FormLabel from '@/components/ui/atoms/FormLabel'
@@ -12,22 +13,20 @@ import { UserIdSelector } from '@/recoil/user'
 import { COLOR_TYPE } from '@/types'
 import { ArrowPathIcon, UserIcon } from '@heroicons/react/24/outline'
 import { FC } from 'react'
-import { useRecoilState, useRecoilValue } from 'recoil'
+import { useRecoilValue, useSetRecoilState } from 'recoil'
 
 const ProfileForm: FC = () => {
   const userId = useRecoilValue(UserIdSelector)
   const { updateProfile, currentProfile, setCurrentProfile, resetProfile } =
     useProfile(userId)
-  const [isLoding, setIsLineLoading] = useRecoilState(LineLoadingAtom)
+  const setIsLineLoading = useSetRecoilState(LineLoadingAtom)
 
   const { showAlert } = useAlert()
 
   return (
     <>
       <Alert>
-        <div className={`${!isLoding ? 'invisible' : 'visible'} h-1 w-full`}>
-          <div className={`h-1  bg-slate-500 `} />
-        </div>
+        <LineLoading />
         <Form
           className={'flex flex-col-reverse lg:flex-row'}
           onSubmit={async (e: any) => {

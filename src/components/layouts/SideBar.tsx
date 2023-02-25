@@ -32,7 +32,7 @@ const sideBarNavigations: Navigation[] = [
   },
   {
     pageName: 'レポート',
-    path: '/report',
+    path: '/reports',
     icon: <ChartBarIcon className="w-6" />,
   },
   {
@@ -58,13 +58,12 @@ const SideBar: FC<SideBarProps> = ({ className }) => {
   return (
     <aside
       className={`${
-        isOpen ? 'w-52' : ['hidden', 'md:block', 'md:w-13'].join(' ')
+        isOpen ? 'z-20 w-52' : ['hidden', 'md:block', 'md:w-13'].join(' ')
       } ${[
         'fixed',
         'left-0',
         'bottom-0 ',
         'top-12',
-        'min-h-screen',
         'border-r-2',
         'bg-slate-500',
         'drop-shadow-2xl',
@@ -73,31 +72,33 @@ const SideBar: FC<SideBarProps> = ({ className }) => {
     >
       <div className={`md:block ${isOpen ? '' : 'hidden'}`}>
         {sideBarNavigations.map((navigation) => (
-          <Link
-            as={navigation.path}
-            href={navigation.path}
-            key={navigation.pageName}
-          >
+          <>
             <Tooltip
               className={`${isOpen ? 'hidden' : 'block'}`}
               name={navigation.pageName}
               position={POSITION_TYPE.LEFT}
             >
-              <div className="w-full">
-                <IconTextButton
-                  className={`${
-                    isActive(navigation.path) ? 'bg-slate-600' : ''
-                  } pl-2`}
-                  icon={navigation.icon}
-                >
-                  <div className={`${isOpen ? 'block' : 'hidden'}`}>
-                    {navigation.pageName}
-                  </div>
-                </IconTextButton>
-                <hr />
-              </div>
+              <Link
+                as={navigation.path}
+                href={navigation.path}
+                key={navigation.pageName}
+              >
+                <div className="w-full">
+                  <IconTextButton
+                    className={`${
+                      isActive(navigation.path) ? 'bg-slate-600' : ''
+                    } pl-2`}
+                    icon={navigation.icon}
+                  >
+                    <div className={`${isOpen ? 'block' : 'hidden'}`}>
+                      {navigation.pageName}
+                    </div>
+                  </IconTextButton>
+                  <hr />
+                </div>
+              </Link>
             </Tooltip>
-          </Link>
+          </>
         ))}
       </div>
     </aside>

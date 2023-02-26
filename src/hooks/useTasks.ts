@@ -5,7 +5,7 @@ import { supabase } from '@/utils/supabase'
 import { useEffect } from 'react'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 
-const database = { from: 'tasks' }
+export const databaseTask = { from: 'tasks' }
 
 const useTasks = () => {
   const setTasks = useSetRecoilState(TasksAtom)
@@ -28,7 +28,7 @@ const useTasks = () => {
 
   const getTasks = async () => {
     const { data, error, status, statusText } = await supabase
-      .from(database.from)
+      .from(databaseTask.from)
       .select('*')
       .limit(pageLimit)
 

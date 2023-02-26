@@ -18,7 +18,7 @@ const Task: FC = () => {
         <SideMenu className="w-0 flex-none md:w-52">
           <main></main>
         </SideMenu>
-        <main className="flex w-full flex-col">
+        <main className="flex w-full flex-row">
           <TaskView />
         </main>
       </Main>

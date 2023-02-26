@@ -10,7 +10,7 @@ const TableRow: FC<TableRowProps> = ({ className, key, children }) => {
   return (
     <div
       key={key}
-      className={`${['w-full', 'flex', 'h-9', 'group'].join(' ')} ${className}`}
+      className={`${['w-full', 'flex', 'group'].join(' ')} ${className}`}
     >
       {children}
     </div>

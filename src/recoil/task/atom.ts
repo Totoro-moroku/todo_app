@@ -35,13 +35,10 @@ export const TaskAtom = atom<Task | null>({
 
 export const CurrentTaskAtom = atom<Task | null>({
   key: 'current.task',
-  default: {
-    id: '',
-    create_at: '',
-    updated_at: '',
-    title: '',
-    content: '',
-    user_id: '',
-    manage_user_id: '',
-  },
+  default: null,
+})
+
+export const OpenTaskForm = atom<boolean>({
+  key: 'task.form.open',
+  default: false,
 })

@@ -6,7 +6,7 @@ const Home: FC = () => {
   return (
     <Layout title="Home">
       <Main>
-        <>test</>
+        <></>
       </Main>
     </Layout>
   )

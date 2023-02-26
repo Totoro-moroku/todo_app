@@ -6,7 +6,7 @@ export type AuthType = {
 
 export type Profile = {
   id: string | undefined
-  updated_at: string | Date
+  updated_at: string
   username: string | undefined
   avatar_url: string | undefined
   first_name: string | undefined
@@ -16,8 +16,8 @@ export type Profile = {
 
 export type Task = {
   id: string | undefined
-  create_at: string | Date
-  updated_at: string | Date
+  created_at: string
+  update_at: string
   title: string | undefined
   content: string | undefined
   user_id: string | undefined
